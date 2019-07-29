@@ -6,7 +6,7 @@
 
 import stack.commands
 from stack.exception import CommandError, ParamRequired, ParamType, ParamValue
-
+import re
 
 class Command(stack.commands.ScopeArgumentProcessor, stack.commands.add.command):
 	"""
