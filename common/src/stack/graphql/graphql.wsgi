@@ -1,13 +1,13 @@
-from ariadne import QueryType, graphql_sync,make_executable_schema
+from ariadne import QueryType, graphql_sync, gql, make_executable_schema
 from ariadne.constants import PLAYGROUND_HTML
 from flask import Flask, request, jsonify
 
 
-type_defs = """
+type_defs = gql("""
     type Query {
 	hello: String!
     }
-"""
+""")
 
 query = QueryType()
 
@@ -24,14 +24,11 @@ def graphql_playgroud():
 
 @application.route("/", methods=["POST"])
 def graphql_server():
-    data = request.get_json()
-
     success, result = graphql_sync(
         schema,
-        data,
+        request.get_json(),
         context_value=request,
-        debug=app.debug
+        debug=application.debug
     )
 
-    status_code = 200 if success else 400
-    return jsonify(result), status_code
+    return jsonify(result), 200 if success else 400
