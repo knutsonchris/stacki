@@ -8,7 +8,7 @@
 -stack-config-server
 -stack-docker
 -stack-examples
--stack-graphql
+-stack-graphql-api
 -stack-kickstart
 -stack-pxeboot
 -stack-switch

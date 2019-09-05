@@ -13,6 +13,6 @@ build:
 install::
 	# Install WSGI File
 	mkdir -p $(ROOT)/var/www/wsgi
-	$(INSTALL) -m 0644 graphql.wsgi $(ROOT)/var/www/wsgi/stacki-graphql.wsgi
+	$(INSTALL) -m 0644 graphql-api.wsgi $(ROOT)/var/www/wsgi/stacki-graphql-api.wsgi
 
 clean::
