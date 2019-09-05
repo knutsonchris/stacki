@@ -16,13 +16,13 @@ def resolve_hello(*_):
     return "Hello!"
 
 schema = make_executable_schema(type_defs, query)
-app = Flask(__name__)
+application = Flask(__name__)
 
-@app.route("/", methods=["GET"])
+@application.route("/", methods=["GET"])
 def graphql_playgroud():
     return PLAYGROUND_HTML, 200
 
-@app.route("/", methods=["POST"])
+@application.route("/", methods=["POST"])
 def graphql_server():
     data = request.get_json()
 
