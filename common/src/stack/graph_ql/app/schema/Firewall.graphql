@@ -1,0 +1,34 @@
+"""Firewalls"""
+type Firewall {
+  id: Int
+  scope: String
+  name: String
+  table_type: String
+  chain: String
+  action: String
+  service: String
+  protocol: String
+  network: String
+  output_network: String
+  flags: String
+  comment: String
+}
+
+extend type Query {
+	"""List of all the firewalls."""
+	firewalls(
+        id: Int,
+        scope: String,
+        name: String,
+        table_type: String
+        chain: String,
+        action: String,
+        service: String,
+        protocol: String,
+        network: String,
+        output_network: String,
+        flags: String,
+        comment: String): [Firewall]
+}
+
+
